@@ -1,52 +1,85 @@
-# Clothes Picker CLI
+# ETF Analyzer
 
-This is a command-line interface application for selecting an outfit composed of shirts and pants written in python.
+This analysis leverages a SQLite database to analyze the performance of four assets individually and combined as an equal-weight portfolio. [Voilà](https://voila.readthedocs.io/en/stable/index.html) is used on the local machine to present to non-technical users and allow them to manipulate the interactive charts. If the analysis carried out in Jupyter Notebook and displayed using Voilà meets the end-users needs it can be deployed using Heroku or a secured intranet.  
 
----
 
 ## Technologies
 
 This project leverages python 3.7 with the following packages:
 
-* [fire](https://github.com/google/python-fire) - For the command line interface, help page, and entry-point.
+* [Numpy](https://numpy.org/) - For numerical operations  
+* [Pandas](https://pandas.pydata.org/) - For analyzing and transforming data
+* [SQLAlchemy](https://www.sqlalchemy.org/) - For interacting with SQL databases within Python
+* [PyViz](https://pyviz.org/) - For visualizing data 
+* [HoloViews](http://holoviews.org/) - For creating interactive plots
+* [Voilà](https://voila.readthedocs.io/en/stable/index.html) - For abstracting code, presenting and interacting with Jupyter Notebooks via HTML
 
-* [questionary](https://github.com/tmbo/questionary) - For interactive user prompts and dialogs
-
----
 
 ## Installation Guide
 
 Before running the application first install the following dependencies.
 
 ```python
-  pip install fire
-  pip install questionary
+  pip install numpy
+  pip install pandas
+  pip install SQLAlchemy
+  pip install pyviz
+  pip install hvplot
+  pip install voila
+  pip install jupyterlab
 ```
 
----
 
 ## Usage
 
-To use the clothes picker application simply clone the repository and run the **cli.py** with the `--pants=true` flag for a full outfit:
+To use the ETF Analyzer clone the repository and run the following code in the same directory as the notebook, `etf_analyzer.ipynb`:
 
 ```python
-python cli.py --pants=true
+voila etf_analyzer.ipynb
 ```
 
-Upon launching the clothes picker you will be greeted with the following prompts.
+This will display a web page in the default browser that displays abstracts away the code in the notebook while displaying the markdown, code outputs, and interactive charts.
 
-![Clothes PIcker CLI](Images/cli.png)
+Below are several examples of tables and charts displayed when interacting with the notebook using Voilà:  
+<br>
 
----
+![PYPL Daily Returns Chart](images/pypl_daily_returns_chart.png)  
+<br>
 
----
+![Cumulative Returns Table](images/cumulative_returns_table.png)  
+<br>
+
+![PYPL Cumulative Returns Chart](images/pypl_cumulative_returns_chart.png)  
+<br>
+
+![Portfolio Cumulative Returns](images/portfolio_and_ind_stock_cum_returns_chart.png)
+
 
 ## Contributors
 
-Brought to you by Shirt&Pants.ai.
+Josh Mischung: [josh@knoasis.io](josh@knoasis.io), [LinkedIn](https://www.linkedin.com/in/joshmischung/)
 
----
 
 ## License
 
-MIT
+MIT License
+
+Copyright (c) [2022] [Joshua Mischung]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
